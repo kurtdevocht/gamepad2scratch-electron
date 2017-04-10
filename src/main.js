@@ -1,10 +1,10 @@
 const electron = require( 'electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-let mainwindow;
+let webContents;
 
 app.on( 'ready', _ => {
-    mainwindow = new BrowserWindow({
+    let mainwindow = new BrowserWindow({
         width: 800,
         height:500,
 
@@ -14,7 +14,10 @@ app.on( 'ready', _ => {
 
     mainwindow.on('closed', _ => {
         mainwindow = null;
-     } );            
+     } );   
+
+     webContents = mainwindow.webContents;
+         
 });
 
 const GamepadState = require( './GamepadState.js');
@@ -78,7 +81,7 @@ function findGamepads(){
     console.log( "Looking for gamepads...");
 
     var gamepadState1 = new GamepadState( 'microntek/gamepad', 1);
-    gamepadState1.on('changed', _ => console.log( "Changed!" ) );
+    gamepadState1.on('changed', _ => webContents.send('gamepad-changed', gamepadState1._state ) );
     gamepadStates = [ gamepadState1 ];
 }
 
