@@ -161,127 +161,158 @@ GamepadState.prototype._hookUpEvents = function(){
 
     this._gamepad.on('right:press', function(){
         this._state.right = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('right:release',function(){
         this._state.right = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('down:press', function(){
         this._state.down = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('down:release',function(){
         this._state.down = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('left:press', function(){
         this._state.left = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('left:release',function(){
         this._state.left = false;
+        this.emit('changed');        
     }.bind(this));
 
      this._gamepad.on('1:press', function(){
         this._state['1'] = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('1:release',function(){
         this._state['1'] = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('2:press', function(){
         this._state['2'] = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('2:release',function(){
         this._state['2'] = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('3:press', function(){
         this._state['3'] = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('3:release',function(){
         this._state['3'] = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('4:press', function(){
         this._state['4'] = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('4:release',function(){
         this._state['4'] = false;
+        this.emit('changed');        
     }.bind(this));
 
      this._gamepad.on('l1:press', function(){
         this._state.l1 = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('l1:release',function(){
         this._state.l1 = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('l2:press', function(){
         this._state.l2 = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('l2:release',function(){
         this._state.l2 = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('r1:press', function(){
         this._state.r1 = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('r1:release',function(){
         this._state.r1 = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('r2:press', function(){
         this._state.r2 = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('r2:release',function(){
         this._state.r2= false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('select:press', function(){
         this._state.select = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('select:release',function(){
         this._state.select = false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('start:press', function(){
         this._state.start = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('start:release',function(){
         this._state.start= false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('joystick_left_button:press', function(){
         this._state.joystick_left_button = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('joystick_left_button:release',function(){
         this._state.joystick_left_button= false;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('joystick_right_button:press', function(){
         this._state.joystick_right_button = true;
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on('joystick_right_button:release',function(){
         this._state.joystick_right_button= false;
+        this.emit('changed');        
     }.bind(this));
 
      this._gamepad.on('joystick_right:move',function(data){
         this._state.joystick_right.x = data.x;
         this._state.joystick_right.y = data.y;
+        this.emit('changed');        
     }.bind(this));
 
      this._gamepad.on('joystick_left:move',function(data){
@@ -299,14 +330,14 @@ GamepadState.prototype._hookUpEvents = function(){
             this._state.analog = false;
         }
 
-        
-       
+        this.emit('changed');        
     }.bind(this));
 
     this._gamepad.on( 'error', (error)=>{
         console.log("Something is kaput... - " + error);
         this.dispose();
         this.init();
+        this.emit('changed');        
     });
 }
 

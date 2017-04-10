@@ -76,7 +76,10 @@ function printIntroScreen(){
 
 function findGamepads(){
     console.log( "Looking for gamepads...");
-    gamepadStates = [new GamepadState( 'microntek/gamepad', 1)];
+
+    var gamepadState1 = new GamepadState( 'microntek/gamepad', 1);
+    gamepadState1.on('changed', _ => console.log( "Changed!" ) );
+    gamepadStates = [ gamepadState1 ];
 }
 
 function buildStateString( states ){
