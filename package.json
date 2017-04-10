@@ -1,0 +1,25 @@
+{
+  "name": "gamepad2scratch-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . --platform=win32 --arch=x64"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "postinstall": "electron-rebuild --force",
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "electron-packager": "^8.6.0",
+    "electron-rebuild": "^1.5.7",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "express": "^4.15.2",
+    "node-hid": "^0.5.4"
+  }
+}
