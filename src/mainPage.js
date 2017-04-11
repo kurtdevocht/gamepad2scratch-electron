@@ -8,11 +8,14 @@ const config = {
 
     fillPushed: '#D8FF00',
     fillNotPushed: '#ffffff',
-    fillText: '#303030',
+    
     fillShadow: '#A0A0A0',
+    fillTextConnected: '#303030',
+    fillTextNotConnected: '#E0E0E0',
+    fillTextWarning: '#FF7700',
 
     fillActive: '#FF5D00',
-    fillInactive: '#ffffff',
+    fillInactive: '#FFFFFF',
 
     pushOffset: 3,
 
@@ -92,6 +95,13 @@ function drawControllerOutline( ctx, gamepadState ){
     // Front burtton areas
     drawBezier( ctx, 95, 80, 185, 80, 110, 10, 170, 10);
     drawBezier( ctx, 430, 80, 340, 80, 415, 10, 355, 10);
+
+    let connected = gamepadState && gamepadState.connected;
+    if( !connected && new Date().getMilliseconds() > 500 ) {
+        ctx.fillStyle = config.fillTextWarning;
+        ctx.font = config.fontButtonMedium;
+        ctx.fillText( 'Geen controller verbonden...', 262.5, 40 );
+    }
 }
 
 
@@ -123,7 +133,7 @@ function drawStateButton( ctx, x, y, gamepadState, property, text ){
     ctx.stroke();
 
     // Button text
-    ctx.fillStyle = config.fillText;
+    setTextFill( ctx, gamepadState );
     ctx.font = config.fontButton;
     ctx.fillText( text, x, y + 6 );
 }
@@ -180,7 +190,7 @@ function drawAnalogButton( ctx, x, y, gamepadState ){
     drawRoundRect( ctx, x, y, w, h );
     
     ctx.beginPath();
-    ctx.fillStyle = config.fillText;
+    setTextFill( ctx, gamepadState );
     ctx.font = config.fontButtonSmall;
     ctx.fillText( 'ANALOG', x, y - 8 );
 }
@@ -197,7 +207,7 @@ function drawStateButtonRoundRect( ctx, x, y, gamepadState, prop, textBelow, tex
 
     if( textBelow ){
         ctx.beginPath();
-        ctx.fillStyle = config.fillText;
+        setTextFill( ctx, gamepadState );
         ctx.font = config.fontButtonSmall,
         ctx.fillText( textBelow, x, y + 18 );
     }
@@ -214,7 +224,7 @@ function drawStateButtonRoundRect( ctx, x, y, gamepadState, prop, textBelow, tex
 
     if( textIn ){
         ctx.beginPath();
-        ctx.fillStyle = config.fillText;
+        setTextFill( ctx, gamepadState );
         ctx.font = config.fontButtonMedium;
         ctx.fillText( textIn, x, y + 4);
     }
@@ -270,5 +280,14 @@ function drawRoundRect( ctx, x, y, w, h, stroke = true ){
     ctx.fill();
     if(stroke ){
         ctx.stroke();
+    }
+}
+
+function setTextFill( ctx, gamepadState ) {
+    if( gamepadState && gamepadState.connected ){
+        ctx.fillStyle = config.fillTextConnected;
+    }
+    else{
+        ctx.fillStyle = config.fillTextNotConnected;
     }
 }
