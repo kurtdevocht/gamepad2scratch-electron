@@ -17,7 +17,6 @@ function GamepadState(type, index){
    EventEmitter.call( this );
    this._type = type;
    this._index = index;
-   this.init();
 }
 
 GamepadState.prototype.init = function(){
