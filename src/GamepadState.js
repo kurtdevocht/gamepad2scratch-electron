@@ -125,39 +125,39 @@ GamepadState.prototype.scratchify = function(){
     }
 
     // Non-analog mode: emulate button press when left joystick is moved
-    result += "button/˄/" + this._index.toString() + " " + state.buttonUp + "\n";
-    result += "button/˃/" + this._index.toString() + " " + state.buttonRight + "\n";
-    result += "button/˅/" + this._index.toString() + " " + state.buttonDown + "\n";
-    result += "button/˂/" + this._index.toString() + " " + state.buttonLeft + "\n";
+    result += "button/˄ " + state.buttonUp + "\n";
+    result += "button/˃ " + state.buttonRight + "\n";
+    result += "button/˅ " + state.buttonDown + "\n";
+    result += "button/˂ " + state.buttonLeft + "\n";
     
     // Nothing special about these buttons...
-    result += "button/1/" + this._index.toString() + " " + state.button1 + "\n";
-    result += "button/2/" + this._index.toString() + " " + state.button2 + "\n";
-    result += "button/3/" + this._index.toString() + " " + state.button3 + "\n";
-    result += "button/4/" + this._index.toString() + " " + state.button4 + "\n";
+    result += "button/1 " + state.button1 + "\n";
+    result += "button/2 " + state.button2 + "\n";
+    result += "button/3 " + state.button3 + "\n";
+    result += "button/4 " + state.button4 + "\n";
 
-    result += "button/l1/" + this._index.toString() + " " + state.buttonl1 + "\n";
-    result += "button/l2/" + this._index.toString() + " " + state.buttonl2 + "\n";
-    result += "button/r1/" + this._index.toString() + " " + state.buttonr1 + "\n";
-    result += "button/r2/" + this._index.toString() + " " + state.buttonr2 + "\n";
+    result += "button/L1 " + state.buttonl1 + "\n";
+    result += "button/L2 " + state.buttonl2 + "\n";
+    result += "button/R1 " + state.buttonr1 + "\n";
+    result += "button/R2 " + state.buttonr2 + "\n";
 
-    result += "button/joystick_left/" + this._index.toString() + " " + state.button_joystick_left + "\n";
-    result += "button/joystick_right/" + this._index.toString() + " " + state.button_joystick_right + "\n";
-    result += "button/select/" + this._index.toString() + " " + state.buttonSelect + "\n";
-    result += "button/start/" + this._index.toString() + " " + state.buttonStart + "\n";
+    result += "button/joystick_links " + state.button_joystick_left + "\n";
+    result += "button/joystick_rechts " + state.button_joystick_right + "\n";
+    result += "button/SELECT " + state.buttonSelect + "\n";
+    result += "button/START " + state.buttonStart + "\n";
 
     // joystick values
-    result += "joystick/x/left/" + this._index.toString() + " " + state.joystick_left_x + "\n";
-    result += "joystick/y/left/" + this._index.toString() + " " + state.joystick_left_y + "\n";
-    result += "joystick_angle/left/" + this._index.toString() + " " + state.joystick_left_angle + "\n";
+    result += "joystick/x-positie/joystick_links " + state.joystick_left_x + "\n";
+    result += "joystick/y-positie/joystick_links " + state.joystick_left_y + "\n";
+    result += "joystick/hoek/joystick_links " + state.joystick_left_angle + "\n";
     
     
-    result += "joystick/x/right/" + this._index.toString() + " " + state.joystick_right_x + "\n";
-    result += "joystick/y/right/" + this._index.toString() + " " + state.joystick_right_y + "\n";
-    result += "joystick_angle/right/" + this._index.toString() + " " + state.joystick_right_angle + "\n";
+    result += "joystick/x-positie/joystick_rechts " + state.joystick_right_x + "\n";
+    result += "joystick/y-positie/joystick_rechts " + state.joystick_right_y + "\n";
+    result += "joystick/hoek/joystick_rechts " + state.joystick_right_angle + "\n";
 
     // Calculated value to indicate that the gamepad is in analog mode
-    result += "analog/" + this._index.toString() + " " + state.analog + "\n";
+    result += "ANALOG " + state.analog + "\n";
     
     return result;
 }

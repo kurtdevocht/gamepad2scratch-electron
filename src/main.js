@@ -5,9 +5,8 @@ let webContents;
 
 app.on( 'ready', _ => {
     let mainwindow = new BrowserWindow({
-        width: 800,
-        height:500,
-
+        width:  500,
+        height: 800,
     });
 
     mainwindow.loadURL( `file://${__dirname}/mainPage.html`);

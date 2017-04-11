@@ -1,0 +1,15 @@
+{
+  "extensionName": "Gamepad2Scratch",
+  "extensionPort": 15005,
+  "blockSpecs": [
+    [ "b", "Knop %m.button ingedrukt", "button", "˂" ],
+    [ "r", "%m.joystick_prop van %m.joystick", "joystick", "x-positie", "joystick_links" ],
+    [ "b", "Analoge modus", "ANALOG" ],
+  ],
+
+  "menus": {
+    "button": [ "˄", "˃", "˅", "˂", "1", "2", "3", "4", "joystick_links", "joystick_rechts", "L1", "L2", "R1", "R2", "SELECT", "START" ],
+    "joystick_prop": ["x-positie","y-positie", "hoek"],
+    "joystick": [ "joystick_links", "joystick_rechts" ],
+  }
+}
