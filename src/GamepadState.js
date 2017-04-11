@@ -26,6 +26,8 @@ GamepadState.prototype.init = function(){
         this._state = {"joystick_left":{},"joystick_right":{}};
         this._hookUpEvents();
         this._gamepad.connect();
+        this._state.connected = true;
+        this.emit('changed');
         console.log( "Connected to device!");
     }
     catch( error ) {
@@ -108,7 +110,9 @@ GamepadState.prototype.scratchState = function(){
         joystick_right_y: joystick_right_y,
         joystick_right_angle: this._xyToAngle(joystick_right_x, joystick_right_y),
 
-        analog: this._state.analog
+        analog: this._state.analog,
+
+        connected: this._state.connected
     };
 }
 
@@ -158,81 +162,6 @@ GamepadState.prototype.scratchify = function(){
     
     return result;
 }
-/*
-// Converts the state to a string that can be understood by the Scratch 2.0 http interface
-GamepadState.prototype.scratchify = function(){
-    var result = "";
-
-    if( !this._state ){
-        return result;
-    }
-
-    // Non-analog mode: emulate button press when left joystick is moved
-    result += "button/˄/" + this._index.toString() + " " + ( this._state.up || ( !this._state.analog && this._state.joystick_left.y === 0 ) ) + "\n";
-    result += "button/˃/" + this._index.toString() + " " + ( this._state.right || ( !this._state.analog && this._state.joystick_left.x === 255 ) ) + "\n";
-    result += "button/˅/" + this._index.toString() + " " + ( this._state.down || ( !this._state.analog && this._state.joystick_left.y === 255 ) )+ "\n";
-    result += "button/˂/" + this._index.toString() + " " + ( this._state.left || ( !this._state.analog && this._state.joystick_left.x === 0 ) ) + "\n";
-    
-    // Nothing special about these buttons...
-    result += "button/1/" + this._index.toString() + " " + this._state['1'] + "\n";
-    result += "button/2/" + this._index.toString() + " " + this._state['2'] + "\n";
-    result += "button/3/" + this._index.toString() + " " + this._state['3'] + "\n";
-    result += "button/4/" + this._index.toString() + " " + this._state['4'] + "\n";
-    result += "button/l1/" + this._index.toString() + " " + this._state.l1 + "\n";
-    result += "button/l2/" + this._index.toString() + " " + this._state.l2 + "\n";
-    result += "button/r1/" + this._index.toString() + " " + this._state.r1 + "\n";
-    result += "button/r2/" + this._index.toString() + " " + this._state.r2 + "\n";
-    result += "button/joystick_left/" + this._index.toString() + " " + this._state.joystick_left_button + "\n";
-    result += "button/joystick_right/" + this._index.toString() + " " + this._state.joystick_right_button + "\n";
-    result += "button/select/" + this._index.toString() + " " + this._state.select + "\n";
-    result += "button/start/" + this._index.toString() + " " + this._state.start + "\n";
-
-    // Caluculate left joystick values
-    var joystick_left_x =  this._analogXyToScratch(this._state.joystick_left.x, false, this._state.analog ? 128 : 127 );
-    result += "joystick/x/left/" + this._index.toString() + " " + joystick_left_x + "\n";
-
-    var joystick_left_y = this._analogXyToScratch(this._state.joystick_left.y, true, this._state.analog ? 128 : 127 );
-    result += "joystick/y/left/" + this._index.toString() + " " + joystick_left_y + "\n";
-
-    result += "joystick_angle/left/" + this._index.toString() + " " + this._xyToAngle(joystick_left_x, joystick_left_y) + "\n";
-    
-    // Calculate right joystick values
-    // => In non-analog mode: emulate joystick movement when buttons 1..4 are pressed
-    var joystick_right_x = 0;
-    if( this._state.analog ){
-        joystick_right_x = this._analogXyToScratch(this._state.joystick_right.x, false, this._state.analog ? 128 : 127);
-    }
-    else if( this._state['2'] && !this._state['4']){
-        joystick_right_x = 100;
-    }
-    else if( this._state['4'] &&! this._state['2']){
-        joystick_right_x = -100;
-    }
-    result += "joystick/x/right/" + this._index.toString() + " " + joystick_right_x + "\n";
-
-    var joystick_right_y = 0;
-    if( this._state.analog ){
-        joystick_right_y = this._analogXyToScratch(this._state.joystick_right.y, true, this._state.analog ? 128 : 127);
-    }
-    else if( this._state['1'] && !this._state['3']){
-        joystick_right_y = 100;
-    }
-    else if( this._state['3'] &&! this._state['1']){
-        joystick_right_y = -100;
-    }
-    result += "joystick/y/right/" + this._index.toString() + " " + joystick_right_y + "\n";
-
-    result += "joystick_angle/right/" + this._index.toString() + " " + this._xyToAngle(joystick_right_x, joystick_right_y) + "\n";
-
-    // Calculated value to indicate that the gamepad is in analog mode
-    result += "analog/" + this._index.toString() + " " + this._state.analog + "\n";
-    
-    return result;
-}
-*/
-
-
-
 GamepadState.prototype._xyToAngle = function(x, y){
     if( x == 0 && y == 0) {
         return 90;

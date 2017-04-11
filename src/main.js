@@ -82,6 +82,7 @@ function findGamepads(){
 
     var gamepadState1 = new GamepadState( 'microntek/gamepad', 1);
     gamepadState1.on('changed', _ => webContents.send('gamepad-changed', gamepadState1.scratchState() ) );
+    gamepadState1.init();
     gamepadStates = [ gamepadState1 ];
 }
 
