@@ -5,7 +5,7 @@ let webContents;
 
 app.on( 'ready', _ => {
     let mainwindow = new BrowserWindow({
-        width:  500,
+        width:  600,
         height: 800,
     });
 
@@ -16,7 +16,6 @@ app.on( 'ready', _ => {
      } );   
 
      webContents = mainwindow.webContents;
-         
 });
 
 const GamepadState = require( './GamepadState.js');

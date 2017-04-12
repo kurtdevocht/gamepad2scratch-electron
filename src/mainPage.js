@@ -1,5 +1,6 @@
 const electron = require( 'electron' );
 const ipc = electron.ipcRenderer;
+const shell = electron.shell;
 const config = {
     lineWidth: 2.5,
 
@@ -26,10 +27,36 @@ const config = {
 
 let gamepadState;
 
+const scratchDir =  __dirname + '\\scratch\\';
+
+
 ipc.on('gamepad-changed', (event, state) => {
     // state will always be onther instance
     gamepadState = state;
 } );
+
+document.getElementById('linkExtScratchOffline').onclick = e => {
+    e.preventDefault();
+    shell.openExternal ( 'https://scratch.mit.edu/scratch2download/' );
+}
+
+var linkDirScratch1 = document.getElementById('linkDirScratch1');
+linkDirScratch1.innerText = scratchDir;
+linkDirScratch1.onclick = e => {
+    e.preventDefault();
+    shell.showItemInFolder ( scratchDir + 'bestuur_een_ding.sb2' );
+}
+
+var linkDirScratch2 = document.getElementById('linkDirScratch2');
+linkDirScratch2.innerText = scratchDir;
+linkDirScratch2.onclick = e => {
+    e.preventDefault();
+    shell.showItemInFolder ( scratchDir + 'leeg_project.sb2' );
+}
+
+document.getElementById('btnOpenAlleKnoppen').onclick = _ => shell.openItem( scratchDir + 'test_alle_knoppen.sb2') ;
+document.getElementById('btnBestuurEenDing').onclick = _ => shell.openItem( scratchDir + 'bestuur_een_ding.sb2') ;
+document.getElementById('btnOpenLeegProject').onclick = _ => shell.openItem( scratchDir + 'leeg_project.sb2') ;
 
 window.requestAnimationFrame( drawCanvas );
 
