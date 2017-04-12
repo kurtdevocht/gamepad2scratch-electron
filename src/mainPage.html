@@ -1,27 +1,71 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        
-    </head>
-    <body>
-        <section>
-            <h1>1 - Plug de controller in</h1>
-            <div>
-                <canvas id='controllerCanvas' width=500, height=300></canvas>
+
+<head>
+    <title>Gamepad2Scratch</title>
+    <link href="ext/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="ext/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class='container'>
+        <div class='row'>
+            <div class='step'>
+                <h1>1 - Plug de controller in</h1>
+                <div class='text-center'>
+                    <canvas id='controllerCanvas' width=500, height=300></canvas>
+                </div>
             </div>
-        </section>
-        
-        <section>
-            
-        <h1>2 - Installeer Scratch</h1>
-            <p>Enkel de offline versie van Scratch kan met deze app verbinden.</p>
-            <p>De offline versie van scratch vind je op <a href='_' id='linkExtScratchOffline'>https://scratch.mit.edu/scratch2download/</a>
-        <h1>3 - Speeltijd!</h1>
-            <button id='btnOpenAlleKnoppen'>Open project</button>
-            <button id='btnBestuurEenDing'>Open project</button>
-            <a href='_' id='linkDirScratch1'>_</a>
-        <h1>4 - Bouw zelf iets!</h1>
-            <button id='btnOpenLeegProject'>Open project</button>
-            <a href='_' id='linkDirScratch2'>_</a>            
-        <script>require('./mainPage')</script>
-    </body>
+        </div>
+
+        <div class='row'>
+            <div class='col-md-4'>
+                <div class='step'>
+                    <h1>2 - Installeer Scratch</h1>
+                    <p>
+                       De controller werkt enkel met de <strong>offline versie</strong> van Scratch. Deze vind je op <a href='_' id='linkExtScratchOffline'>https://scratch.mit.edu/scratch2download/</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class='col-md-4 chapter'>
+                <div class='step'>
+                    <h1>3 - Speeltijd!</h1>
+                    <p>In de map <a href='_' id='linkDirScratch1'>_</a> vind je Scratch-projecten waarmee je meteen kan starten:</p>
+                    <div class='row'>
+                        <div class='col-xs-6 text-center'>
+                            <button id='btnBestuurEenDing' class='btn btn-primary'><i class="fa fa-file"></i> Bestuur een aap</button></td>
+                        </div>
+                        <div class='col-xs-6 text-center'>
+                            <button id='btnOpenAlleKnoppen' class='btn btn-primary'><i class="fa fa-file"></i> Test alle knoppen</button></td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-md-4 chapter'>
+                <div class='step'>
+                    <h1>4 - Bouw zelf iets!</h1>
+                    <p>Ofwel vertrek je van een leeg project waarin de extra blokken al geladen zijn:</p>
+                    <div class='text-center'>
+                        <p><button id='btnOpenLeegProject' class='btn btn-primary'><i class="fa fa-file"></i> Leeg project</button></p>
+                    </div>
+                    <p>Ofwel laad je de extra blokken in een bestaand project:</p>
+                    <p>
+                        <ol>
+                            <li>Open je Scratch-project</li>
+                            <li>Houd de <strong>SHIFT-toets</strong> ingedrukt terwijl je op het menu <strong>'Bestand'</strong>                                klikt</li>
+                            <li>Klik op <strong>'Importeer experimentele HTTP-uitbreiding'</strong></li>
+                            <li>Ga naar de map <a href='_' id='linkDirScratch2'>_</a> en open <strong>'Gamepad2Scratch uitbreiding.s2e'</strong></li>
+                            <li>Bij <strong>Meer blokken</strong> vind je nu extra blokken om de controller uit te lezen</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script>
+            require('./mainPage')
+        </script>
+</body>
 </html>

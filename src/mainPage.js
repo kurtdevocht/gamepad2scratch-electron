@@ -44,7 +44,7 @@ var linkDirScratch1 = document.getElementById('linkDirScratch1');
 linkDirScratch1.innerText = scratchDir;
 linkDirScratch1.onclick = e => {
     e.preventDefault();
-    shell.showItemInFolder ( scratchDir + 'bestuur_een_ding.sb2' );
+    shell.showItemInFolder ( scratchDir + 'bestuur_een_aap.sb2' );
 }
 
 var linkDirScratch2 = document.getElementById('linkDirScratch2');
@@ -55,7 +55,7 @@ linkDirScratch2.onclick = e => {
 }
 
 document.getElementById('btnOpenAlleKnoppen').onclick = _ => shell.openItem( scratchDir + 'test_alle_knoppen.sb2') ;
-document.getElementById('btnBestuurEenDing').onclick = _ => shell.openItem( scratchDir + 'bestuur_een_ding.sb2') ;
+document.getElementById('btnBestuurEenDing').onclick = _ => shell.openItem( scratchDir + 'bestuur_een_aap.sb2') ;
 document.getElementById('btnOpenLeegProject').onclick = _ => shell.openItem( scratchDir + 'leeg_project.sb2') ;
 
 window.requestAnimationFrame( drawCanvas );
