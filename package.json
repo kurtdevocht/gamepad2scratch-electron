@@ -1,18 +1,19 @@
 {
-  "name": "gamepad2scratch-electron",
+  "name": "gamepad2scratch",
   "version": "1.0.0",
-  "description": "",
+  "description": "Connects a usb-gamepad to Scratch",
+  "author": "@kurtdevocht",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . --platform=win32 --arch=x64"
+    "packWin64": "electron-packager . --platform=win32 --arch=x64"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "postinstall": "electron-rebuild --force",
   "devDependencies": {
     "electron": "^1.6.2",
+    "electron-builder": "^16.8.3",
     "electron-packager": "^8.6.0",
     "electron-rebuild": "^1.5.7",
     "rimraf": "^2.6.1"

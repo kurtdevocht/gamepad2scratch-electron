@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-    background-color: #EBFF7F;
+    background-color: hsl(66, 100%, 76%);
     padding: 5px;
     border-radius: 5px;
     font-family: 'FontHeader';
@@ -25,31 +25,29 @@ h2 {
     font-size: 20px;
 }
 
-.scratchProject {
-    max-width: 250px;
-    background-color: #E0E0E0;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border-radius: 15px;
-}
-
 .step {
     margin-bottom:10px;
     padding: 5px;
 }
 
-.table td {
-    border-bottom: 1px solid;
+.btn-primary {
+    color: hsl(0, 0%, 100% );
+    background-color: hsl(66, 50%, 45%);
+    border-color: hsl(66, 50%, 35%);
 }
 
-.btn-primary {
-    background-color: #90994C;
-    border-color: #848C46;
+.btn-primary:focus {
+    background-color: hsl(66, 50%, 45%);
+    border-color: hsl(66, 50%, 25%);
 }
 
 .btn-primary:hover {
-    background-color: #848C46;
+    background-color: hsl(66, 50%, 35%);
 }
+
+.btn-primary:active:focus {
+    background-color: hsl(66, 50%, 75%);
+    border-color: hsl(66, 50%, 45%);
+}
+
+
