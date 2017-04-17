@@ -6,7 +6,8 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "packWin64": "electron-packager . --platform=win32 --arch=x64"
+    "packWin64": "electron-packager . --platform=win32 --arch=x64",
+    "packMac64": "electron-packager . --platform=darwin --arch=x64"
   },
   "keywords": [],
   "license": "ISC",
