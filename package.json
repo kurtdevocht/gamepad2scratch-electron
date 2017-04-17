@@ -6,6 +6,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
+    "rebuild": "electron-rebuild --force",
     "packWin64": "electron-packager . --platform=win32 --arch=x64",
     "packMac64": "electron-packager . --platform=darwin --arch=x64"
   },

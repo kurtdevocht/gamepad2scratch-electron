@@ -1,4 +1,6 @@
 const electron = require( 'electron' );
+const path = require( 'path' );
+
 const ipc = electron.ipcRenderer;
 const shell = electron.shell;
 const config = {
@@ -27,7 +29,7 @@ const config = {
 
 let gamepadState;
 
-const scratchDir =  __dirname + '\\scratch\\';
+const scratchDir =  __dirname + path.sep + 'scratch' + path.sep;
 
 
 ipc.on('gamepad-changed', (event, state) => {
