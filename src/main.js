@@ -13,6 +13,8 @@ app.on( 'ready', _ => {
 
     mainwindow.on('closed', _ => {
         mainwindow = null;
+        console.log( "Bye Bye! Please come back soon!");
+        process.exit( 0 );
      } );   
 
      webContents = mainwindow.webContents;
