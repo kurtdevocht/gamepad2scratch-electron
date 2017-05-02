@@ -1,2 +1,4 @@
 node_modules/
 gamepad2scratch-win32-ia32/
+gamepad2scratch-darwin-x64/
+.DS_Store

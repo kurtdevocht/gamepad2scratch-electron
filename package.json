@@ -7,9 +7,9 @@
   "scripts": {
     "start": "electron .",
     "rebuildWin": "electron-rebuild --force --arch=ia32",
-    "rebuildMac": "electron-rebuild --force",
+    "rebuildMac": "electron-rebuild --force --arch=x64",
     "packWin": "electron-packager . --platform=win32 --arch=ia32 --overwrite --icon=src/icon/icon.ico",
-    "packMac": "electron-packager . --platform=darwin --arch=x64 --overwrite"
+    "packMac": "electron-packager . --platform=darwin --arch=x64 --overwrite --icon=src/icon/icon.icns"
   },
   "keywords": [],
   "license": "ISC",
