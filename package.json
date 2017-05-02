@@ -6,9 +6,10 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "rebuild": "electron-rebuild --force",
-    "packWin64": "electron-packager . --platform=win32 --arch=x64",
-    "packMac64": "electron-packager . --platform=darwin --arch=x64"
+    "rebuildWin": "electron-rebuild --force --arch=ia32",
+    "rebuildMac": "electron-rebuild --force",
+    "packWin": "electron-packager . --platform=win32 --arch=ia32 --overwrite --icon=src/icon/icon.ico",
+    "packMac": "electron-packager . --platform=darwin --arch=x64 --overwrite"
   },
   "keywords": [],
   "license": "ISC",
